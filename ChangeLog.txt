@@ -1,0 +1,89 @@
+fdrawcmd.sys
+============
+
+Version 1.0.1.11 (2010-04-25)
+-----------------------------
+- Worked around index sync issue with buggy FDCs by avoiding size=0
+
+
+Version 1.0.1.10 [refresh] (2008-12-21)
+---------------------------------------
+- FdInstall.dll is no longer UPX-compressed, to avoid a virus false-positive
+- ALL installation message boxes are now suppressed during silent installation
+
+
+Version 1.0.1.10 (2008-09-29)
+-----------------------------
+- Sector size codes >= 8 now treated as 32K
+- Added IOCTL_FD_CHECK_DISK and IOCTL_FD_GET_TRACK_TIME
+- IOCTL_FDCMD_FORMAT_AND_WRITE now implemented for compatible FDCs
+
+
+Version 1.0.1.9 [refresh 2] (2007-01-05)
+----------------------------------------
+- UPX no longer used to compress installer, to avoid virus scanner false-positive
+
+
+Version 1.0.1.9 [refresh] (2006-12-27)
+--------------------------------------
+- Single installer for both x86 and x64 platforms
+- Added support for Windows Vista
+- Driver code unchanged in this release, so no version number change
+
+
+Version 1.0.1.9 (2006-05-07)
+----------------------------
+- A motor timeout of 0 seconds can now be used to prevent the motor switching off
+
+
+Version 1.0.1.8 (2006-03-30)
+----------------------------
+- Fixed short-write start race condition on SMP/HyperThreaded systems
+
+
+Version 1.0.1.7 (2006-03-15)
+----------------------------
+- Fixed legacy FD_SCAN_TRACK use, which sometimes needed recalibration before seeking
+- Fixed raw reads failing to start if the request size was above the DMA limit
+- Fixed possible crash if control device was open during driver restart/update
+
+
+Version 1.0.1.6 (2006-03-12)
+----------------------------
+- Fixed large raw-read transfer crash on AMD64
+- Fixed track wrap error in layout scanning when first sector is close to index hole
+
+
+Version 1.0.1.4 (2006-03-08)
+----------------------------
+- Added raw track reading support using Disk2FDI's 2 drive method
+- Fixed acquire-only commands holding on to the controller if motor was off
+
+
+Version 1.0.1.2 (2006-02-05)
+----------------------------
+- Changed default motor timeout to 2 seconds
+- Default controller settings are now restored for each device handle
+- Controller now locked when device open, so manual lock/unlock are deprecated
+- Recalibrate and Seek commands no longer require a disk in the drive
+- Read/write commands now use caller-specified buffer for size codes > 7
+- Fixed access to sector id 255, which was returning ERROR_INVALID_PARAMETER
+- Fixed crash when reading/writing sectors with size codes >= 32
+- Fixed possible crash if device was in use across a driver restart/update
+- Fixed Configure and Specify commands, which checked the input buffer against pointer size instead of structure size!
+- Missing data field is now reported as ERROR_SECTOR_NOT_FOUND instead of ERROR_CRC
+- ReadId now resturns ERROR_CRC for CRC errors, instead of reporting as ERROR_SECTOR_NOT_FOUND
+- Improved index sync, for better support of small sector sizes and early track starts
+- Updated header to use only fixed size types, for 64-bit compatibility
+- Removed cyl value from FD_SCAN_PARAMS structure, but still allow old-style calls for compatibility
+- Added head tracking for safer seek bounds checking
+- Added sector sync for duplicate sector id support
+- Added support for custom head-settle times, for optimal use of modern drives
+- Added support for reading count of unprocessed controller data
+- Added timed track scanning to allow sector positions to be determined
+- Added short-write support for truncated sectors, CRC errors, weak sectors, etc.
+
+
+Version 1.0.0.19 (2005-07-08)
+-----------------------------
+- First public release

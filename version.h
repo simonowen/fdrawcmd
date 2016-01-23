@@ -1,0 +1,9 @@
+#ifndef VERSION_H
+#define VERSION_H
+
+#define DRIVER_VERSION		0x0100010b
+#define VERSION_RC			1,0,1,11
+#define VERSION_RCSTRING	"1.0.1.11"
+#define FDINSTALL_CAPTION	"FDRAWCMD v1.0.1.11"
+
+#endif

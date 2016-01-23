@@ -1,0 +1,7 @@
+TARGETNAME=fdrawcmd
+TARGETPATH=obj
+TARGETTYPE=DRIVER
+TARGETLIBS=$(DDK_LIB_PATH)\csq.lib
+USE_PDB=1
+
+SOURCES=fdrawcmd.cpp fdrawcmd.rc

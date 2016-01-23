@@ -1,0 +1,15 @@
+.*
+!.gitignore
+
+*.aps
+*.opt
+*.ncb
+*.plg
+*.suo
+*.sdf
+*.opendb
+*.user
+[Dd]ebug/
+[Rr]elease/
+obj???_*_*/
+build???_*_*.log
