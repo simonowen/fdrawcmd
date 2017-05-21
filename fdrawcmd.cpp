@@ -1289,7 +1289,7 @@ NTSTATUS ResetFdc (PEXTRA_DEVICE_EXTENSION edx)
 
 	status = FlFdcDeviceIo(edx->pdx->LowerDeviceObject, IOCTL_DISK_INTERNAL_RESET_FDC);
 
-	if (NT_SUCCESS(status))
+	if (!NT_SUCCESS(status))
 	{
 		KdPrint(("!!! ResetFdc failed with %X, retrying in 500ms...\n", status));
 	    Sleep(500);
