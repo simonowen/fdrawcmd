@@ -115,7 +115,6 @@
   <ItemGroup>
     <ClInclude Include="driver.h" />
     <ClInclude Include="fdrawcmd.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="stddcls.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
